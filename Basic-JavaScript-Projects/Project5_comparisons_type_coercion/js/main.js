@@ -16,7 +16,9 @@ document.writeln(2===3); //display a false by value comparison
 document.writeln(2===3 && 2==="5"); //display false with the && operator
 document.writeln(2===2 && "blue"==="blue"); //display true with the && operator
 document.writeln(!(2===3 && 2==="5")); //display true with ! operator
-document.writeln(!(2===2) && "blue"==="blue"); //display fals with the same operator
+document.writeln(!(2===2) && "blue"==="blue"); //display false with the same operator
+document.writeln(!(2===2) || "blue"==="blue"); //display true with the || operator
+document.writeln(!(2===2) || !("blue"==="blue")); //display false with the same operator
 
 function infinity(){
     document.getElementById("sugar").innerHTML = "" + 2E309 + " or " + -2E358; //write infinity and -infinity

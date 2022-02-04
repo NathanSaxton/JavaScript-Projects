@@ -15,6 +15,6 @@ function slice() {
 function stringItUp() {
     var x = 12;
     var y = 1354861.51651361;
-    document.getElementById("number").innerHTML = x.toString() + " " + y.toPrecision(10);
+    document.getElementById("number").innerHTML = x.toString() + " " + y.toPrecision(10) + " " + y.toFixed(3) + " " + x.valueOf();
 
 }

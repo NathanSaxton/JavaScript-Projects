@@ -1,0 +1,64 @@
+body {
+    text-align: center;
+    justify-content: center;
+}
+
+.slideContainer {
+    max-width: 1000px;;
+    margin: auto;
+    position: relative;
+    background-color: aqua;
+}
+
+.slide {
+    width: 100%;
+    display: none;
+}
+
+#prev, #next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 18px;
+    transition: .6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+#next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+#prev:hover, #next:hover {
+    background-color: rgba(0, 0, 0, .7);
+}
+
+.slideNumber {
+    color: seashell;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: silver;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color .6s ease;
+}
+
+.active, .dot:hover{
+    background-color: gray;
+}
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Form Challenge</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="js/main.js" defer></script>
+    </head>
+    <body>
+        <div id="form-container">
+            <form action="" name="theForm" onsubmit="return formValidation()" method="post">
+                <label for="fName">First Name:</label><br />
+                <input type="text" class="input" id="fName" required /><br />
+                <label for="lName">Last Name: </label><br />
+                <input type="text" class="input" id="lName" required /><br />
+                <label for="email">Email:</label><br />
+                <input type="email" class="input" id="email" /><br />
+                <input type="submit" id="submit" value="Submit" />
+            </form>
+        </div>
+    </body>
+</html>

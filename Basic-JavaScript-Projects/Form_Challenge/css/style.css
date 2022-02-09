@@ -1,0 +1,43 @@
+body {
+    text-align: center;
+    background-color: antiquewhite;
+}
+
+#form-container {
+    background-color: darksalmon;
+    border: 5px double slategray;
+    border-radius: 10px;
+    margin: 5vh 20%;
+    padding: 5vh;
+}
+
+label {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 400;
+    font-size: larger;
+}
+
+input {
+    margin-bottom: 5px;
+
+}
+
+.input{
+    width: 100%;
+    padding: 0;
+    margin: auto 0;
+    border-radius: 3px;
+    height: 1.5em;
+}
+
+#submit {
+    width: 25%;
+    margin-top: 15px;
+    padding: 2% 3%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 900;
+    font-size: larger;
+    color: steelblue;
+    background-color: cornsilk;
+    border-radius: 5px;
+}

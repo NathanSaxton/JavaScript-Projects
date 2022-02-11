@@ -1,13 +1,13 @@
 let activePlayer = 'X';
-let selectedPlayer = [];
+let selectedSquares = [];
 
 function placeXOrO(squareNumber) { //main game function allowing for placing tiles and swapping between player and computer
     if (!selectedSquares.some(element => element.includes(squareNumber))) {
         let select = document.getElementById(squareNumber);
         if (activePlayer === 'X') {//decides what marker is placed
-            select.style.backgroundImage = 'url("../img/x.png")';
+            select.style.backgroundImage = 'url("./img/x.png")';
         } else {
-            select.style.backgroundImage = 'url("../img/o.png")';
+            select.style.backgroundImage = 'url("./img/o.png")';
         }
         selectedSquares.push(squareNumber + activePlayer);
         checkWinConditions();
@@ -16,7 +16,7 @@ function placeXOrO(squareNumber) { //main game function allowing for placing til
         } else {
             activePlayer = 'X';
         }
-        audio('../media/place.mp3') //placement audio
+        audio('./media/place.mp3') //placement audio
         if (activePlayer === 'O') {//make it so the player can't go on the computer's turn
             disableClick();
             setTimeout(function () { computersTurn(); }, 1000)
@@ -70,15 +70,25 @@ function checkWinConditions() {
     } else if (arrayIncludes('0O', '4O', '8O')) {
         drawWinLine(100, 100, 520, 520)
     } else if (selectedSquares.length >= 9) {
-        audio('../media/tie.mp3');
+        audio('./media/tie.mp3');
         setTimeout(function () { resetGame(); }, 1000);
     }
 
-    arrayIncludes = (squareA, squareB, squareC) => {
+    function arrayIncludes(squareA, squareB, squareC) {
         const a = selectedSquares.includes(squareA)
         const b = selectedSquares.includes(squareB)
         const c = selectedSquares.includes(squareC)
 
         if (a === true && b === true && c === true) { return true }
     }
+}
+
+function disableClick() {
+    body.style.pointerEvents = 'none';
+    setTimeout(function () { body.style.pointerEvents = 'auto'; }, 1000);
+}
+
+function audio(audioURL) {
+    let audio = new Audio(audioURL);
+    audio.play();
 }

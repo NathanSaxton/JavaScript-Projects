@@ -24,19 +24,20 @@ function placeXOrO(squareNumber) { //main game function allowing for placing til
         return true;
     }
     function computersTurn() { //computer's turn to place on a random square
+        console.log('computer started');
         let success = false;
         let pickASquare;
         while (!success) {
             pickASquare = String(Math.floor(Math.random() * 9));
-        }
-        if (placeXOrO(pickASquare)) {
-            placeXOrO(pickASquare);
-            success = true;
+            if (placeXOrO(pickASquare)) {
+                placeXOrO(pickASquare);
+                success = true;
+            }
         }
     }
 }
 
-function checkWinConditions() {
+function checkWinConditions() { //check the win conditions
     if (arrayIncludes('0X', '1X', '2X')) {
         drawWinLine(50, 100, 558, 100)
     } else if (arrayIncludes('3X', '4X', '5X')) {
@@ -83,12 +84,49 @@ function checkWinConditions() {
     }
 }
 
-function disableClick() {
+function disableClick() { //stop the player from clicking when it's the computer's turn.
     body.style.pointerEvents = 'none';
     setTimeout(function () { body.style.pointerEvents = 'auto'; }, 1000);
 }
 
-function audio(audioURL) {
+function audio(audioURL) { //Play the selected audio
     let audio = new Audio(audioURL);
     audio.play();
+}
+
+function drawWinLine(coordX1, coordY1, coordX2, coordY2) {//Display winner and how they won
+    const canvas = document.getElementById('win-lines');
+    const c = canvas.getContext('2d');
+    let x1 = coordX1, x2 = coordX2, y1 = coordY1, y2 = coordY2, x = x1, y = y1;
+
+    function animateLineDrawing() {//draw a line showing how the winner won.
+        const animationLoop = requestAnimationFrame(animateLineDrawing);
+        c.clearRect(0, 0, 608, 608);
+        c.beginPath();
+        c.moveTo(x1, y1);
+        c.lineTo(x, y);
+        c.lineWidth = 10;
+        c.strokeStyle = 'rgba(70, 255, 33, .8)';
+        c.stroke();
+        if (x1 <= x2 && y1 <= y2) {
+            if (x < x2) {
+                x += 10;
+            }
+            if (y < y2) {
+                y += 10;
+            }
+            if (x >= x2 && y >= y2) {
+                cancelAnimationFrame(animationLoop);
+            }
+        }
+    }
+    function clear() {
+        const animationLoop = requestAnimationFrame(clear);
+        c.clearRect(0, 0, 608, 608);
+        cancelAnimationFrame(animationLoop);
+    }
+    disableClick();//stop the player from putting more markers
+    audio('./media/winGame.mp3'); //play win audio
+    animateLineDrawing();
+    setTimeout(function () { clear(); resetGame(); }, 1000);
 }

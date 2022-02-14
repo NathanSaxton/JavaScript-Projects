@@ -119,7 +119,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {//Display winner and h
                 cancelAnimationFrame(animationLoop);
             }
         }
-        if (x1<= x2  && y1> y2){
+        if (x1<= x2  && y1 > y2){
             if (x<x2){
                 x+=10;
             }
@@ -131,7 +131,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {//Display winner and h
             }
         }
     }
-    function clear() {
+    function clear() { //function needed to clear the line drawn on the canvas
         const animationLoop = requestAnimationFrame(clear);
         c.clearRect(0, 0, 608, 608);
         cancelAnimationFrame(animationLoop);
@@ -142,7 +142,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {//Display winner and h
     setTimeout(function () { clear(); resetGame(); }, 1000);
 }
 
-function resetGame() {
+function resetGame() { //function used to reset the game without reseting the turn order
     for(let i = 0; i<9; i++){
         let square = document.getElementById(String(i));
         square.style.backgroundImage = '';

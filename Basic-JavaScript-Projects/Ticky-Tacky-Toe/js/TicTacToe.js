@@ -5,9 +5,9 @@ function placeXOrO(squareNumber) { //main game function allowing for placing til
     if (!selectedSquares.some(element => element.includes(squareNumber))) {
         let select = document.getElementById(squareNumber);
         if (activePlayer === 'X') {//decides what marker is placed
-            select.style.backgroundImage = 'url("./img/x.png")';
+            select.style.backgroundImage = 'url("./img/x.jpg")';
         } else {
-            select.style.backgroundImage = 'url("./img/o.png")';
+            select.style.backgroundImage = 'url("./img/o.jpg")';
         }
         selectedSquares.push(squareNumber + activePlayer);
         checkWinConditions();

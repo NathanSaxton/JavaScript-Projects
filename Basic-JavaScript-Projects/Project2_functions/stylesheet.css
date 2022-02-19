@@ -1,0 +1,9 @@
+p {
+    opacity: 1;
+    transition: 3s opacity;
+}
+
+p.fade-out {
+    opacity: 0;
+    transition: none;
+}

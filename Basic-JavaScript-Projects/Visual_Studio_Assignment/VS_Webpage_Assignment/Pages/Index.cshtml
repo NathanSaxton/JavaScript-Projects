@@ -8,7 +8,10 @@
     <h1 id="header" class="display-4">Welcome to this Page</h1>
     <p>Find my music video below.</p>
 </div>
-<input type="button" onclick="loadVid()" value="Click Me" />
+<input type="button" onclick="loadVid(); moveTheSquare();" value="Click Me" />
 <div id="vid">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/XuDnsjECf_A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div id="bigBlueContainer">
+    <div id="movingSquare"></div>
 </div>
